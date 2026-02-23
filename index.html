@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineFlow - Stream Free</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="icon" type="image/x-icon" href="/images/favi-removebg-preview.png">
+    <link rel="stylesheet" href="style.css">
+   </head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">CINEFLOW</div>
+        <button class="nav-btn active" onclick="changeCategory('movie', this)"><i class="fas fa-home"></i> <span>Home</span></button>
+        <button class="nav-btn" onclick="changeCategory('movie', this, '2025')"><i class="fas fa-fire"></i> <span>Trending 2026</span></button>
+        <button class="nav-btn" onclick="changeCategory('series', this)"><i class="fas fa-tv"></i> <span>TV Shows</span></button>
+    </div>
+
+    <div class="main-content">
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-bar" id="searchInput" placeholder="Search for movies or shows..." onkeypress="handleSearch(event)">
+        </div>
+
+        <h2 class="section-title" id="displayTitle">Featured Movies</h2>
+        <div class="movie-grid" id="movieGrid">
+            <!-- Content will be injected here -->
+        </div>
+    </div>
+
+    <!-- Video Player Overlay -->
+    <div id="playerModal" class="player-modal">
+        <div class="player-header">
+            <button class="back-btn" onclick="closePlayer()"><i class="fas fa-arrow-left"></i> Back</button>
+            <div class="controls-group" id="seriesControls" style="display: none;">
+                <select id="seasonSelect" onchange="updateEpisodeList()"></select>
+                <select id="episodeSelect" onchange="playEpisode()"></select>
+            </div>
+            <div id="activeTitle" style="font-weight: bold;">Watching...</div>
+        </div>
+        <iframe id="videoFrame" src="" allowfullscreen></iframe>
+    </div>
+</body>
+<script src="music.js"></script>
+</html>
